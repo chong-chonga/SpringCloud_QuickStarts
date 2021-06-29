@@ -1,0 +1,61 @@
+
+server:
+  port: 8001
+  error:
+    path: /error
+  servlet:
+    encoding:
+      charset: utf-8
+      enabled: true
+
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
+    default-property-inclusion: non_null
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  mvc:
+    servlet:
+      path: / #设置dispatcherServlet路径为默认值
+  datasource:
+    # 连接到 EDS 服务器上的 mysql
+    username: root
+    password: '#includeaa'
+    url: jdbc:mysql://localhost:3306/dev_springcloud?useSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
+    druid:
+      filters: wall #开启druid数据库底层防火墙功能
+      filter:
+        wall:
+          enabled: true
+          config:
+            drop-table-allow: false #禁止删除表
+  jdbc:
+    template:
+      query-timeout: 3
+  redis:
+    #连接到 ECS 服务器上的 redis
+    host: 127.0.0.1
+    port: 6379
+    password: '#inAliUbuntuAa124200'
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 500
+        min-idle: 0
+    client-type: jedis
+  application:
+    name: service-provider-payment
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka,http://localhost:7002/eureka
+    fetch-registry: true
+    register-with-eureka: true
+  instance:
+    instance-id: client-provider-payment8001
+    prefer-ip-address: true

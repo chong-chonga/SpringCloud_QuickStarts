@@ -1,0 +1,6 @@
+com\huanglexin\springcloud\param\InsertGroup.class
+com\huanglexin\springcloud\param\PaymentParam.class
+com\huanglexin\springcloud\param\UserParam$LoginGroup.class
+com\huanglexin\springcloud\param\UserParam.class
+com\huanglexin\springcloud\result\ApiResult$EmptyObject.class
+com\huanglexin\springcloud\result\ApiResult.class
