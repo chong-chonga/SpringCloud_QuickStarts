@@ -424,7 +424,12 @@ public class UserController {
 
 ## OpenFeign
 
-客户端服务调用的一层封装
+官方文档链接 [Spring-Cloud-OpenFeign](https://docs.spring.io/spring-cloud-openfeign/docs/current/reference/html/)
+
+OpenFeign 是对客户端服务调用的一层封装(RestTemplate 远程过程调用时较为繁琐)
+
+OpenFeign 支持负载均衡, 这一点在官方文档中已经说明了
+
 
 ### 超时配置
 
