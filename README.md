@@ -1,7 +1,7 @@
 # SpringCloud微服务学习笔记(图片待完善) 从零开始的微服务学习(持续更新), 版本2020.0.3
 这里是我自己的微服务学习过程中的一些杂碎笔记, 针对开发过程中我自己踩的种种坑, 如依赖不全, 服务注册中心集群配置错误等等. 希望能给大家提供点帮助, 在微服务学习上更加顺畅
 
-## 引言
+## 小记
 这是我学习 bilibili上的SpringCloud课程 [链接](https://www.bilibili.com/video/BV18E411x7eT) 后所写
 
 ## Maven仓库配置(依赖版本无法下载等问题必看)
@@ -429,7 +429,7 @@ public class UserController {
 OpenFeign 是对客户端服务调用的一层封装(RestTemplate 远程过程调用时较为繁琐)
 
 OpenFeign 支持负载均衡, 这一点在官方文档中已经说明了
-
+![输入图片说明](https://images.gitee.com/uploads/images/2021/0630/154948_898b08fd_5350519.png "屏幕截图.png")
 
 ### 超时配置
 
@@ -503,7 +503,26 @@ feign:
 ```
 ![输入图片说明](https://images.gitee.com/uploads/images/2021/0630/000412_2a1496aa_5350519.png "屏幕截图.png")
 
+### 日志功能配置
 
-
-
-
+查看OpenFeign的官方文档, 可以看到日志打印级别是需要手动配置的
+![输入图片说明](https://images.gitee.com/uploads/images/2021/0630/155044_75902845_5350519.png "屏幕截图.png")
+Feign的日志只响应 DEBUG 级别, 故在配置文件中, 配置 Logging 的Feign客户端 level 为 debug
+![输入图片说明](https://images.gitee.com/uploads/images/2021/0630/155103_5aae5d04_5350519.png "屏幕截图.png")
+```yaml
+feign:
+  client:
+    config:
+      default:
+        loggerLevel: full
+logging:
+  level:
+  	# 为该客户端创建一个记录器
+    com.hlx.springcloud.client.UserClient: debug
+        
+```
+#### 发送请求
+![输入图片说明](https://images.gitee.com/uploads/images/2021/0630/155150_ce899321_5350519.png "屏幕截图.png")
+#### 后台日志打印结果
+![输入图片说明](https://images.gitee.com/uploads/images/2021/0630/155213_ee3fb63b_5350519.png "屏幕截图.png")
+说明配置是正确的
